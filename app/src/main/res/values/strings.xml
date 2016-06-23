@@ -3,4 +3,8 @@
     <string name="product_description">Shinobi cuddly toy - a lovely cuddly toy that every developer needs in their life.</string>
     <string name="product_title">Shinobi cuddly toy</string>
     <string name="product_price">$9.99</string>
+    <string name="product_quantity">1</string>
+    <string name="store_currency">USD</string>
+    <string name="store_name">Shinobi Cuddly Toy Store</string>
+    <string name="user_name">Guest User</string>
 </resources>
