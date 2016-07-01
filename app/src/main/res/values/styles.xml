@@ -17,4 +17,15 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="WalletFragmentDetailsTextAppearance">
+        <item name="android:textColor">@color/wallet_details_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="WalletFragmentDetailsHeaderTextAppearance"
+           parent="WalletFragmentDetailsTextAppearance">
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

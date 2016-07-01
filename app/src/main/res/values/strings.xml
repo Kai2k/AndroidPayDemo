@@ -2,9 +2,25 @@
     <string name="app_name">Android Pay Demo</string>
     <string name="product_description">Shinobi cuddly toy - a lovely cuddly toy that every developer needs in their life.</string>
     <string name="product_title">Shinobi cuddly toy</string>
-    <string name="product_price">$9.99</string>
+    <string name="product_price">9.99</string>
+    <string name="pretty_product_price">$9.99</string>
+    <string name="shipping">Shipping</string>
+    <string name="shipping_price">2.99</string>
+    <string name="pretty_shipping_price">$2.99</string>
+    <string name="total">Total</string>
+    <string name="total_price">12.98</string>
+    <string name="pretty_total_price">$12.98</string>
     <string name="product_quantity">1</string>
     <string name="store_currency">USD</string>
     <string name="store_name">Shinobi Cuddly Toy Store</string>
     <string name="user_name">Guest User</string>
+    <string name="order_confirmation">Order Confirmation</string>
+    <string name="order_success">Order Success</string>
+    <string name="confirm_order">Confirm Order</string>
+    <string name="continue_shopping">Continue Shopping</string>
+    <string name="success">Success!</string>
+    <string name="success_message_pretext">The payment method token is shown below:</string>
+    <string name="item">"Item"</string>
+    <string name="price">"Price"</string>
+    <string name="confirm_title">"Confirm order"</string>
 </resources>

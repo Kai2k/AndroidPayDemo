@@ -14,50 +14,44 @@
     tools:showIn="@layout/activity_main">
 
     <ImageView
+        android:id="@+id/imgProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/shinobi_toy"
-        android:id="@+id/imgProduct"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
     <TextView
+        android:id="@+id/txtProductTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtProductTitle"
         android:text="@string/product_title"
         android:layout_below="@+id/imgProduct"
         android:layout_centerInParent="true"
         android:layout_margin="10dp"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:textIsSelectable="false"
-        android:textSize="30dp"/>
+        android:textSize="30sp"/>
     <TextView
+        android:id="@+id/txtProductDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtProductDescription"
         android:text="@string/product_description"
         android:layout_below="@+id/txtProductTitle"
+        android:layout_alignEnd="@+id/imgProduct"
+        android:layout_margin="10dp"
         android:textAlignment="textStart"
-        android:textSize="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_alignEnd="@+id/imgProduct"/>
+        android:textSize="15sp"/>
     <TextView
+        android:id="@+id/txtProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtProductPrice"
-        android:text="@string/product_price"
+        android:text="@string/pretty_product_price"
         android:layout_below="@id/txtProductTitle"
-        android:layout_toRightOf="@id/txtProductDescription"
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"
         android:textAlignment="textEnd"
         android:textStyle="bold"
-        android:textIsSelectable="false"
-        android:textSize="15dp"/>
+        android:textSize="15sp"/>
     <LinearLayout
         android:id="@+id/layout_android_pay"
         android:layout_width="match_parent"

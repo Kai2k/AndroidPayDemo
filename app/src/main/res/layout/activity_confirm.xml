@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginRight="@dimen/padding_small"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_confirm"
+                android:text="@string/confirm_title"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="30sp"/>
+            <TextView
+                android:id="@+id/txt_confirm_item_header"
+                android:text="@string/item"
+                android:layout_below="@id/txt_confirm"
+                android:layout_alignParentStart="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_confirm_price_header"
+                android:text="@string/price"
+                android:layout_below="@id/txt_confirm"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_item_confirm"
+                android:text="@string/product_title"
+                android:layout_below="@id/txt_confirm_item_header"
+                android:layout_alignParentStart="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_item_confirm_price"
+                android:text="@string/pretty_product_price"
+                android:layout_below="@id/txt_confirm_price_header"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_shipping_confirm"
+                android:text="@string/shipping"
+                android:layout_below="@id/txt_item_confirm"
+                android:layout_alignParentStart="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_shipping_confirm_price"
+                android:text="@string/pretty_shipping_price"
+                android:layout_below="@id/txt_item_confirm_price"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_total_confirm"
+                android:text="@string/total"
+                android:layout_below="@id/txt_shipping_confirm"
+                android:layout_alignParentStart="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_total_confirm_price"
+                android:text="@string/pretty_total_price"
+                android:layout_below="@id/txt_shipping_confirm_price"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/dynamic_wallet_masked_wallet_fragment"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/padding_small"
+            android:layout_marginRight="@dimen/padding_small" />
+
+        <Button
+            android:id="@+id/btn_confirm_order"
+            android:layout_width="@dimen/buy_button_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_large"
+            android:text="@string/confirm_order"/>
+
+    </LinearLayout>
+</ScrollView>
