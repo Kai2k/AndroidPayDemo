@@ -35,7 +35,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements GoogleApiClient
         .OnConnectionFailedListener {
 
-    private static final int REQUEST_CODE_MASKED_WALLET = 1001;
+    private static final int REQUEST_CODE_MASKED_WALLET = 10033;
     private static final String TAG = "MainActivity";
     static final int WALLET_ENVIRONMENT = WalletConstants.ENVIRONMENT_TEST;
 
@@ -47,8 +47,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient
         setSupportActionBar(toolbar);
 
         final GoogleApiClient googleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(Wallet.API, new Wallet.WalletOptions.Builder()
-                        .setEnvironment(WalletConstants.ENVIRONMENT_TEST)
+                .addApi(Wallet.API, new Wallet
+                        .WalletOptions.Builder()
+                        .setEnvironment(WALLET_ENVIRONMENT)
                         .build())
                 .enableAutoManage(this, this)
                 .build();
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient
                 .setEstimatedTotalPrice(getString(R.string.total_price))
                 .setCart(Cart.newBuilder()
                         .setCurrencyCode(getString(R.string.store_currency))
-                        .setTotalPrice(getString(R.string.total_price))
+                        .setTotalPrice(getString(R.string.product_price))
                         .setLineItems(new ShoppingCart(this).getLineItems())
                         .build())
                 .setPaymentMethodTokenizationParameters(parameters)

@@ -17,7 +17,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wallet.Cart;
 import com.google.android.gms.wallet.FullWallet;
 import com.google.android.gms.wallet.FullWalletRequest;
-import com.google.android.gms.wallet.LineItem;
 import com.google.android.gms.wallet.MaskedWallet;
 import com.google.android.gms.wallet.Wallet;
 import com.google.android.gms.wallet.WalletConstants;
@@ -26,9 +25,6 @@ import com.google.android.gms.wallet.fragment.WalletFragmentInitParams;
 import com.google.android.gms.wallet.fragment.WalletFragmentMode;
 import com.google.android.gms.wallet.fragment.WalletFragmentOptions;
 import com.google.android.gms.wallet.fragment.WalletFragmentStyle;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConfirmationActivity extends AppCompatActivity implements View.OnClickListener,
         GoogleApiClient.OnConnectionFailedListener {
@@ -45,12 +41,13 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
         maskedWallet = getIntent().getParcelableExtra(WalletConstants.EXTRA_MASKED_WALLET);
         setContentView(R.layout.activity_confirm);
 
-        Button confirmOrder = (Button) findViewById(R.id.btn_confirm_order);
+        final Button confirmOrder = (Button) findViewById(R.id.btn_confirm_order);
         if (confirmOrder != null) {
             confirmOrder.setOnClickListener(this);
         }
 
-        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this)
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
                 .setAccountName(getString(R.string.user_name))
                 .addApi(Wallet.API, new Wallet
                         .WalletOptions.Builder()
@@ -75,18 +72,26 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
 
         switch (requestCode) {
             case REQUEST_CODE_CHANGE_MASKED_WALLET:
-                if (resultCode == Activity.RESULT_OK && data.hasExtra(WalletConstants
-                        .EXTRA_MASKED_WALLET)) {
-                    maskedWallet = data.getParcelableExtra(WalletConstants.EXTRA_MASKED_WALLET);
+                switch (resultCode) {
+                    case Activity.RESULT_OK:
+                        if (data.hasExtra(WalletConstants.EXTRA_MASKED_WALLET)) {
+                            maskedWallet = data.getParcelableExtra(WalletConstants.EXTRA_MASKED_WALLET);
+                        }
+                        break;
+                    case Activity.RESULT_CANCELED:
+                        break;
+                    default:
+                        handleError(errorCode);
+                        break;
                 }
                 break;
             case REQUEST_CODE_RESOLVE_LOAD_FULL_WALLET:
                 switch (resultCode) {
                     case Activity.RESULT_OK:
                         if (data.hasExtra(WalletConstants.EXTRA_FULL_WALLET)) {
-                            FullWallet fullWallet = data.getParcelableExtra(WalletConstants
+                            final FullWallet fullWallet = data.getParcelableExtra(WalletConstants
                                     .EXTRA_FULL_WALLET);
-                            fetchTransactionStatus(fullWallet);
+                            showPaymentConfirmation(fullWallet);
                         } else if (data.hasExtra(WalletConstants
                                 .EXTRA_MASKED_WALLET)) {
                             maskedWallet = data.getParcelableExtra(WalletConstants
@@ -113,7 +118,7 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void createAndAddWalletFragment() {
-        WalletFragmentStyle walletFragmentStyle = new WalletFragmentStyle()
+        final WalletFragmentStyle walletFragmentStyle = new WalletFragmentStyle()
                 .setMaskedWalletDetailsTextAppearance(R.style
                         .WalletFragmentDetailsTextAppearance)
                 .setMaskedWalletDetailsHeaderTextAppearance(R.style
@@ -121,7 +126,7 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
                 .setMaskedWalletDetailsBackgroundColor(ContextCompat.getColor
                         (getApplicationContext(), R.color.shinobi_white));
 
-        WalletFragmentOptions walletFragmentOptions = WalletFragmentOptions.newBuilder()
+        final WalletFragmentOptions walletFragmentOptions = WalletFragmentOptions.newBuilder()
                 .setEnvironment(MainActivity.WALLET_ENVIRONMENT)
                 .setFragmentStyle(walletFragmentStyle)
                 .setTheme(WalletConstants.THEME_LIGHT)
@@ -130,7 +135,7 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
 
         walletFragment = SupportWalletFragment.newInstance(walletFragmentOptions);
 
-        WalletFragmentInitParams.Builder startParamsBuilder =
+        final WalletFragmentInitParams.Builder startParamsBuilder =
                 WalletFragmentInitParams.newBuilder()
                         .setMaskedWallet(maskedWallet)
                         .setMaskedWalletRequestCode(REQUEST_CODE_CHANGE_MASKED_WALLET)
@@ -146,7 +151,7 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void confirmOrder() {
-        FullWalletRequest fullWalletRequest = FullWalletRequest.newBuilder()
+        final FullWalletRequest fullWalletRequest = FullWalletRequest.newBuilder()
                 .setGoogleTransactionId(maskedWallet.getGoogleTransactionId())
                 .setCart(Cart.newBuilder()
                         .setCurrencyCode(getString(R.string.store_currency))
@@ -168,8 +173,8 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
 
     }
 
-    private void fetchTransactionStatus(FullWallet fullWallet) {
-        Intent intent = new Intent(this, OrderSuccessActivity.class);
+    private void showPaymentConfirmation(FullWallet fullWallet) {
+        final Intent intent = new Intent(this, OrderSuccessActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(WalletConstants.EXTRA_FULL_WALLET, fullWallet);
         startActivity(intent);

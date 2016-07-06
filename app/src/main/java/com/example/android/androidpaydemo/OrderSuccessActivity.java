@@ -17,9 +17,9 @@ public class OrderSuccessActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_success);
-        final FullWallet mFullWallet = getIntent().getParcelableExtra(WalletConstants
+        final FullWallet fullWallet = getIntent().getParcelableExtra(WalletConstants
                 .EXTRA_FULL_WALLET);
-        final PaymentMethodToken paymentMethodToken = mFullWallet.getPaymentMethodToken();
+        final PaymentMethodToken paymentMethodToken = fullWallet.getPaymentMethodToken();
         final TextView txtPaymentMethodToken = (TextView) findViewById(R.id
                 .txt_payment_method_token);
         if (txtPaymentMethodToken != null) {
