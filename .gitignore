@@ -17,6 +17,10 @@ target/
 
 # Ignore gradle files
 .gradle/
+gradlew
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
 build/
 
 # Local configuration file (sdk path, etc)
@@ -51,5 +55,10 @@ Thumbs.db
 **/.idea/modules.xml
 **/.idea/libraries
 **/.idea/dictionaries
+**/.idea/compiler.xml
+**/.idea/copyright/profiles_settings.xml
+**/.idea/encodings.xml
+**/.idea/runConfigurations.xml
+**/.idea/vcs.xml
 **/captures
 
