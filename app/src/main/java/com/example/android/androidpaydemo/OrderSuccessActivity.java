@@ -33,9 +33,9 @@ public class OrderSuccessActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        final Intent intent = new Intent(OrderSuccessActivity.this, MainActivity.class);
+        final Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        OrderSuccessActivity.this.startActivity(intent);
+        this.startActivity(intent);
     }
 }

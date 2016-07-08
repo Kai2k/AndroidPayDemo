@@ -17,9 +17,10 @@
         android:id="@+id/imgProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/shinobi_toy"
+        android:src="@drawable/shinobi_toy"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/product_title"/>
     <TextView
         android:id="@+id/txtProductTitle"
         android:layout_width="wrap_content"
